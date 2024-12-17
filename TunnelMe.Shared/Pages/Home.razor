@@ -1,0 +1,28 @@
+﻿@page "/"
+@using Microsoft.FluentUI.AspNetCore.Components
+@using TunnelMe.Shared.Services
+@inject IFormFactor FormFactor
+
+<PageTitle>Home</PageTitle>
+
+<h1>Tunnels</h1>
+
+<FluentCard>
+    @foreach (var tunnel in Tunnels)
+    {
+           <span>
+               @tunnel
+           
+               
+           </span>
+    }
+</FluentCard>
+
+
+@code {
+
+    private string factor => FormFactor.GetFormFactor();
+    private string platform => FormFactor.GetPlatform();
+
+    private string[] Tunnels = new string[] { "a", "b", "c" };
+}
